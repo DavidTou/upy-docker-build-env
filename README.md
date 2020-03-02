@@ -29,6 +29,7 @@ Then copy the the firmware into your filesystem.
 ```bash
   docker cp upy-builder:/esp/micropython/ports/esp32/build/firmware.bin firmware.bin
 ```
+or simply mount the volume you want to access through the Docker Desktop App
 
 Deployment
 ------------------
