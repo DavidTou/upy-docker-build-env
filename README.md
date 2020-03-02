@@ -1,7 +1,7 @@
 Firmware builder on Docker container
 ======================
 
-This repository is intended to create a simple environment to generate builds of custom micropython firmware you specify in the Dockerfile or as `build-args`. However, you can also freely use it providing links to your repo as the arguments.
+This repository is intended to create a simple environment to generate builds of custom micropython firmware you specify in the Dockerfile or as `build-args`.
 
 Usage
 ------------------
