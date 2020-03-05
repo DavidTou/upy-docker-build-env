@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
-
+## ESP-IDF version
 ARG VERSION_HASH=30545f4cccec7460634b656d278782dd7151098e
-
+ARG VERSION_UPY_TAG=v1.12
 ARG REPO=https://github.com/DavidTou/micropython
 
 RUN apt-get update \
@@ -25,7 +25,7 @@ RUN cd /esp && git clone https://github.com/espressif/esp-idf.git
 RUN cd /esp/esp-idf && git checkout ${VERSION_HASH} && git submodule update --init --recursive
 
 ## Checkout MicroPython
-RUN cd /esp && git clone --recursive ${REPO} && cd micropython && git checkout v1.10
+RUN cd /esp && git clone --recursive ${REPO} && cd micropython && git checkout ${VERSION_UPY_TAG}
 
 ## Set environmental variables before building, but after code is checked out
 ENV ESPIDF=/esp/esp-idf
@@ -49,4 +49,6 @@ VOLUME ["/esp/micropython/ports/esp32/build", "/esp/micropython/ports/esp32/modu
 
 USER root
 ## Build base clean firmware image by default
-CMD ["make"]
+#CMD ["make"]
+CMD ["make USER_C_MODULES=/esp/micropython/pmtmodules/ CFLAGS_EXTRA=-DMODULE_EXAMPLE_ENABLED=1 PYTHON=python2"]
+## CMD ["sleep","infinity"]

@@ -9,28 +9,32 @@ Usage
 Build the docker image:
 
 ```bash
-  docker build -t upy-builder .
+  docker build -t upy-build-image .
 ```
 
 Use `build-args` to provide arguments such as:
 
 ```bash
-  docker build -t upy-builder --build-arg REPO=<git_repo_url> .
+  docker build -t upy-build-image --build-arg REPO=<git_repo_url> .
 ```
 
 Then create a container from the image using:
 
 ```bash
-  docker create --name upy-builder upy-builder
+   docker create --name upy upy-build-image
 ```
 
 Then copy the the firmware into your filesystem.
 
 ```bash
-  docker cp upy-builder:/esp/micropython/ports/esp32/build/firmware.bin firmware.bin
+  docker cp upy:/esp/micropython/ports/esp32/build/firmware.bin firmware.bin
 ```
 or simply mount the volume you want to access through Docker Desktop App's Kitematic.
 
+Remove unused data (images etc. )
+
+```bash
+  docker system prune
 Deployment
 ------------------
 
