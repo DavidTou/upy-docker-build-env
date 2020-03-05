@@ -1,4 +1,4 @@
-Firmware builder on Docker container
+ESP Firmware builder on Docker container
 ======================
 
 This repository is intended to create a simple environment to generate builds of custom micropython firmware you specify in the Dockerfile or as `build-args`.
