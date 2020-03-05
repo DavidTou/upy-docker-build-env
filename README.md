@@ -58,3 +58,32 @@ Provided arguments are following:
 `REPO` - Link to your fork of micropython.
 
 `VERSION_HASH` - Hash of supported ESP-IDF version.
+
+Build docker image
+```bash
+  docker build -t bubba .
+```
+
+Run image with specified environment variables
+```bash
+  docker run -ti --name bubba -e VERSION_UPY=v1.12 -e REPO=https://github.com/DavidTou/micropython bubba bash
+```
+
+When shell prompt:
+```bash
+  /run.sh
+  exit
+```
+Restart container
+```bash
+  docker restart bubba
+```
+
+Attach local standard input, output, and error streams to a running container (see if running)
+```bash
+  docker attach bubba
+```
+Remove container (-f, force if running)
+```bash
+  docker rm -f bubba
+```
