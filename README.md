@@ -36,7 +36,7 @@ Remove unused data (images etc. )
 ```bash
   docker system prune
 Deployment
-------------------
+```
 
 Clear your ESP:
 
